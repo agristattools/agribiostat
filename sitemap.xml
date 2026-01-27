@@ -5,14 +5,14 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     
     <!-- 
-        AgriBioStat Analytics Suite - XML Sitemap
+        AgriBioStat - XML Sitemap
         Generated: 2026-01-01
         Last Updated: 2026-01-01
     -->
     
     <!-- Homepage (Highest Priority) -->
     <url>
-        <loc>https://https://agristattools.github.io/</loc>
+        <loc>https://https://agristattools.github.io/agribiostat/index.html</loc>
         <lastmod>2026-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -72,3 +72,4 @@
     
 
 </urlset>
+
