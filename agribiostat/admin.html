@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Blog Admin | AgriBioStat Analytics Suite</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Note: This page is not indexed (handled in robots.txt) -->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/img/logo.png" alt="AgriBioStat Analytics Suite logo" class="logo">
+                <span>AgriBioStat</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="blogs.html" class="nav-link">Blog</a>
+                <a href="admin.html" class="nav-link active">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Login Section -->
+        <section id="login-section" class="section">
+            <h2>Blog Admin Login</h2>
+            <div class="login-form">
+                <p>Enter admin password to manage blog posts.</p>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" placeholder="Enter admin password">
+                    <div id="login-error" class="error-message" style="display: none;"></div>
+                </div>
+                <button id="login-btn" class="btn btn-primary">Login</button>
+                
+                <!-- 
+                    IMPORTANT: Change the default password below before deployment.
+                    The password is stored in plain text in JavaScript - for production,
+                    implement proper authentication.
+                -->
+
+            </div>
+        </section>
+
+        <!-- Admin Dashboard (hidden initially) -->
+        <section id="dashboard-section" class="section" style="display: none;">
+            <h2>Blog Management Dashboard</h2>
+            
+            <!-- Create New Post Form -->
+            <div class="admin-card">
+                <h3>Create New Blog Post</h3>
+                <form id="new-post-form">
+                    <div class="form-group">
+                        <label for="post-title">Title *</label>
+                        <input type="text" id="post-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-author">Author *</label>
+                        <input type="text" id="post-author" value="Zulqar Nain" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-date">Date *</label>
+                        <input type="date" id="post-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-tags">Tags (comma-separated)</label>
+                        <input type="text" id="post-tags" placeholder="Statistics, Bioinformatics, Tutorial">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-excerpt">Excerpt *</label>
+                        <textarea id="post-excerpt" rows="3" required placeholder="Brief summary of the post..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-content">Full Content (HTML allowed) *</label>
+                        <textarea id="post-content" rows="10" required placeholder="Full blog post content..."></textarea>
+                        <small>You can use HTML tags for formatting (p, h3, h4, ul, li, strong, em, etc.)</small>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Publish Post</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+                    
+                    <div id="form-success" class="success-message" style="display: none;"></div>
+                    <div id="form-error" class="error-message" style="display: none;"></div>
+                </form>
+            </div>
+
+            <!-- Existing Posts -->
+            <div class="admin-card">
+                <h3>Existing Posts</h3>
+                <div id="posts-list">
+                    <!-- Posts will be loaded here -->
+                    <p>Loading posts...</p>
+                </div>
+            </div>
+            
+            <!-- Logout Button -->
+            <div class="logout-section">
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/img/logof.png" alt="AgriBioStat Analytics Suite logo" class="footer-logo">
+                    <h3>AgriBioStat Analytics Suite</h3>
+                    <p>Advanced Agricultural Statistics & Multi‑Omics Bioinformatics Online</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="ammi-gea.html">AMMI & G×E</a>
+                    <a href="bioomics.html">BioOmics Pro</a>
+                    <a href="blogs.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="license.html">License & Terms</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Developer</h4>
+                    <p><strong>Zulqar Nain</strong><br>Plant Breeder & Data Science Expert</p>
+                    <p>
+                        <strong>WhatsApp:</strong> <a href="https://wa.me/923465375149">+92 346 5375149</a><br>
+                        <strong>Email:</strong> <a href="mailto:zulqarnainm656@gmail.com">zulqarnainm656@gmail.com</a>
+                    </p>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>External Links</h4>
+                    <a href="https://www.linkedin.com/in/zulqarnain-dar" target="_blank">LinkedIn</a>
+                    <a href="https://agristattools.github.io/agricultural-statistics-tools/" target="_blank">AgriStatTools</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 AgriBioStat Analytics Suite – All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Admin page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hardcoded admin password - CHANGE THIS BEFORE DEPLOYMENT
+            const ADMIN_PASSWORD = "muhammad@786";
+            
+            const loginSection = document.getElementById('login-section');
+            const dashboardSection = document.getElementById('dashboard-section');
+            const loginBtn = document.getElementById('login-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const passwordInput = document.getElementById('admin-password');
+            const loginError = document.getElementById('login-error');
+            const newPostForm = document.getElementById('new-post-form');
+            const postsList = document.getElementById('posts-list');
+            const formSuccess = document.getElementById('form-success');
+            const formError = document.getElementById('form-error');
+            
+            // Check if already logged in (simple session)
+            if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+                showDashboard();
+            }
+            
+            // Login functionality
+            loginBtn.addEventListener('click', function() {
+                const password = passwordInput.value.trim();
+                
+                if (password === ADMIN_PASSWORD) {
+                    // Successful login
+                    sessionStorage.setItem('adminLoggedIn', 'true');
+                    showDashboard();
+                    loginError.style.display = 'none';
+                } else {
+                    // Failed login
+                    loginError.textContent = 'Incorrect password. Please try again.';
+                    loginError.style.display = 'block';
+                    passwordInput.focus();
+                }
+            });
+            
+            // Also allow Enter key for login
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    loginBtn.click();
+                }
+            });
+            
+            // Logout functionality
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function() {
+                    sessionStorage.removeItem('adminLoggedIn');
+                    showLogin();
+                });
+            }
+            
+            // Set default date to today
+            const dateInput = document.getElementById('post-date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+            }
+            
+            // Handle new post form submission
+            if (newPostForm) {
+                newPostForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const title = document.getElementById('post-title').value.trim();
+                    const author = document.getElementById('post-author').value.trim();
+                    const date = document.getElementById('post-date').value;
+                    const tags = document.getElementById('post-tags').value.trim();
+                    const excerpt = document.getElementById('post-excerpt').value.trim();
+                    const content = document.getElementById('post-content').value.trim();
+                    
+                    // Validate required fields
+                    if (!title || !author || !date || !excerpt || !content) {
+                        formError.textContent = 'Please fill in all required fields.';
+                        formError.style.display = 'block';
+                        formSuccess.style.display = 'none';
+                        return;
+                    }
+                    
+                    // Create post object
+                    const newPost = {
+                        id: Date.now(),
+                        title: title,
+                        author: author,
+                        date: date,
+                        tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
+                        excerpt: excerpt,
+                        content: content
+                    };
+                    
+                    // Get existing posts
+                    const existingPosts = JSON.parse(localStorage.getItem('agriBioStatBlogPosts')) || [];
+                    
+                    // Add new post
+                    existingPosts.push(newPost);
+                    
+                    // Save back to localStorage
+                    localStorage.setItem('agriBioStatBlogPosts', JSON.stringify(existingPosts));
+                    
+                    // Show success message
+                    formSuccess.textContent = 'Blog post published successfully!';
+                    formSuccess.style.display = 'block';
+                    formError.style.display = 'none';
+                    
+                    // Clear form
+                    newPostForm.reset();
+                    
+                    // Reset date to today
+                    document.getElementById('post-date').value = today;
+                    document.getElementById('post-author').value = 'Zulqar Nain';
+                    
+                    // Refresh posts list
+                    loadExistingPosts();
+                });
+            }
+            
+            // Load existing posts
+            function loadExistingPosts() {
+                if (!postsList) return;
+                
+                const posts = JSON.parse(localStorage.getItem('agriBioStatBlogPosts')) || [];
+                
+                if (posts.length === 0) {
+                    postsList.innerHTML = '<p>No blog posts yet. Create your first post above.</p>';
+                    return;
+                }
+                
+                // Sort by date (newest first)
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                let html = '<div class="existing-posts">';
+                
+                posts.forEach((post, index) => {
+                    const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                    
+                    html += `
+                        <div class="existing-post">
+                            <div class="post-header">
+                                <h4>${post.title}</h4>
+                                <button class="btn btn-small btn-danger delete-post" data-id="${post.id}">Delete</button>
+                            </div>
+                            <div class="post-meta">
+                                <span><strong>Author:</strong> ${post.author}</span>
+                                <span><strong>Date:</strong> ${formattedDate}</span>
+                                <span><strong>Tags:</strong> ${post.tags && post.tags.length > 0 ? post.tags.join(', ') : 'None'}</span>
+                            </div>
+                            <p class="post-excerpt">${post.excerpt.substring(0, 150)}${post.excerpt.length > 150 ? '...' : ''}</p>
+                            ${index < posts.length - 1 ? '<hr>' : ''}
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                postsList.innerHTML = html;
+                
+                // Add delete functionality
+                document.querySelectorAll('.delete-post').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const postId = this.dataset.id;
+                        if (confirm('Are you sure you want to delete this post? This action cannot be undone.')) {
+                            deletePost(postId);
+                        }
+                    });
+                });
+            }
+            
+            function deletePost(postId) {
+                const posts = JSON.parse(localStorage.getItem('agriBioStatBlogPosts')) || [];
+                const filteredPosts = posts.filter(post => post.id != postId);
+                
+                localStorage.setItem('agriBioStatBlogPosts', JSON.stringify(filteredPosts));
+                loadExistingPosts();
+                
+                // Show success message
+                formSuccess.textContent = 'Post deleted successfully.';
+                formSuccess.style.display = 'block';
+                setTimeout(() => {
+                    formSuccess.style.display = 'none';
+                }, 3000);
+            }
+            
+            function showDashboard() {
+                loginSection.style.display = 'none';
+                dashboardSection.style.display = 'block';
+                loadExistingPosts();
+            }
+            
+            function showLogin() {
+                loginSection.style.display = 'block';
+                dashboardSection.style.display = 'none';
+                passwordInput.value = '';
+                loginError.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
