@@ -524,12 +524,35 @@
                 initHeroSlider();
             }
             
-              // Initialize FAQ accordions
+            // Initialize FAQ accordions
             initFAQs();
             
-    <!-- Ads Manager -->
-    <script src="assets/js/ads-manager.js"></script>
+            // Load ads
+            if (typeof AdManager !== 'undefined') {
+                    <script src="assets/js/ads-manager.js"></script>
+                AdManager.showNativeBanner('home-native-ad-2');
+            }
+        });
+    </script>
+    
+    <!-- Load Ads Component -->
+    <script>
+        function loadAdsComponent() {
+            const adsContainer = document.createElement('div');
+            adsContainer.id = 'ads-container';
+            document.body.appendChild(adsContainer);
+            
+            fetch('ads.html')
+                .then(response => response.text())
+                .then(html => {
+                    adsContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    console.log('Ads loaded');
+                });
+        }
+        
+        loadAdsComponent();
     </script>
 </body>
 </html>
-
