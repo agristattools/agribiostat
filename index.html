@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>AgriBioStat Analytics Suite | Advanced Agricultural Statistics & Multi-Omics Bioinformatics</title>
+    <meta name="description" content="Comprehensive platform for agricultural multi-environment trial analysis and multi-omics bioinformatics. Advanced tools for AMMI, G×E, BLUP, RNA-seq, VCF analysis, and phylogenetic analysis online.">
+    <meta name="keywords" content="agricultural statistics platform, multi-environment trial analysis, genotype × environment interaction, AMMI analysis online, plant breeding statistics software, BLUP analysis online, agricultural data science tools, crop improvement statistics, multi-omics analysis platform, bioinformatics analysis online, RNA-seq analysis pipeline, VCF variant analysis online, sequence alignment tool, phylogenetic analysis online">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.agribiostat-analytics.com/">
+    <meta property="og:title" content="AgriBioStat Analytics Suite | Advanced Agricultural Statistics & Multi-Omics Bioinformatics">
+    <meta property="og:description" content="Professional platform for agricultural statistics and bioinformatics analysis with embedded R Shiny tools.">
+    <meta property="og:image" content="https://www.agribiostat-analytics.com/assets/img/hero-agri-1.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.agribiostat-analytics.com/">
+    <meta property="twitter:title" content="AgriBioStat Analytics Suite | Advanced Agricultural Statistics & Multi-Omics Bioinformatics">
+    <meta property="twitter:description" content="Professional platform for agricultural statistics and bioinformatics analysis with embedded R Shiny tools.">
+    <meta property="twitter:image" content="https://www.agribiostat-analytics.com/assets/img/hero-agri-1.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.agribiostat-analytics.com/">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "AgriBioStat Analytics Suite",
+            "url": "https://www.agribiostat-analytics.com/",
+            "logo": "https://www.agribiostat-analytics.com/assets/img/logo-main.svg",
+            "sameAs": [
+                "https://www.linkedin.com/in/zulqarnain-dar",
+                "https://agristattools.github.io/agricultural-statistics-tools/"
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "email": "zulqarnainm656@gmail.com",
+                "telephone": "+92-346-5375149",
+                "availableLanguage": ["en"]
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "AgriBioStat Analytics Suite",
+            "url": "https://www.agribiostat-analytics.com/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.agribiostat-analytics.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "AgroMultiEnvStat Pro",
+            "operatingSystem": "Web",
+            "applicationCategory": "ScientificApplication",
+            "url": "https://www.agribiostat-analytics.com/ammi-gea.html",
+            "creator": {
+                "@type": "Person",
+                "name": "Zulqar Nain"
+            },
+            "description": "Advanced agricultural multi-environment trial analysis platform for AMMI, G×E, BLUP, correlation, and path analysis."
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "MultiOmics Pro",
+            "operatingSystem": "Web",
+            "applicationCategory": "ScientificApplication",
+            "url": "https://www.agribiostat-analytics.com/bioomics.html",
+            "creator": {
+                "@type": "Person",
+                "name": "Zulqar Nain"
+            },
+            "description": "Integrated multi-omics bioinformatics platform for sequence alignment, phylogenetic analysis, variant analysis, and RNA-seq analysis."
+        }
+    ]
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/img/logo.png" alt="AgriBioStat Analytics Suite logo" class="logo">
+                <span>AgriBioStat</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="ammi-gea.html" class="nav-link">AMMI & G×E</a>
+                <a href="bioomics.html" class="nav-link">BioOmics Pro</a>
+                <a href="blogs.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section with Slider -->
+    <header class="hero">
+        <div class="hero-slider">
+            <!-- Slide 1 -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/hero1.jpg');">
+                <div class="container">
+                    <h1>AgriBioStat Analytics Suite</h1>
+                    <p class="tagline">Advanced Agricultural Statistics & Multi-Omics Bioinformatics Online</p>
+                    <p class="hero-desc">Professional tools for plant breeding, multi-environment trials, and omics data analysis. Supporting global agricultural research.</p>
+                    <div class="hero-actions">
+                        <a href="ammi-gea.html" class="btn btn-primary">Launch AMMI & G×E Tool</a>
+                        <a href="bioomics.html" class="btn btn-secondary">Launch MultiOmics Pro</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/hero2.jpg');">
+                <div class="container">
+                    <h1>Agricultural Statistics</h1>
+                    <p class="tagline">AMMI • BLUP • G×E • Stability Analysis • Path Analysis</p>
+                    <p class="hero-desc">Comprehensive statistical platform for multi-environment trials, genotype × environment interaction, and breeding informatics.</p>
+                    <div class="hero-actions">
+                        <a href="ammi-gea.html" class="btn btn-primary">Launch AMMI & G×E Tool</a>
+                        <a href="bioomics.html" class="btn btn-secondary">Launch MultiOmics Pro</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/hero3.jpg');">
+                <div class="container">
+                    <h1>Multi-Omics Bioinformatics</h1>
+                    <p class="tagline">Sequence Alignment • Phylogenetics • RNA-seq • Variant Analysis</p>
+                    <p class="hero-desc">Integrated pipelines for genomics, transcriptomics, and proteomics data analysis with publication-ready outputs.</p>
+                    <div class="hero-actions">
+                        <a href="ammi-gea.html" class="btn btn-primary">Launch AMMI & G×E Tool</a>
+                        <a href="bioomics.html" class="btn btn-secondary">Launch MultiOmics Pro</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Controls -->
+            <button class="slider-prev" aria-label="Previous slide">‹</button>
+            <button class="slider-next" aria-label="Next slide">›</button>
+            <div class="slider-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Native Banner Ad after Hero -->
+    <div id="home-native-ad-1"></div>
+
+    <main class="container">
+        <!-- About Platform -->
+        <section class="section">
+            <h2>About the Platform</h2>
+             <div class="about-content text-center">
+                <p>AgriBioStat Analytics Suite provides an integrated environment for agricultural researchers, plant breeders, and bioinformaticians. Our platform bridges the gap between traditional agricultural statistics and modern multi-omics analysis, offering web-based tools that generate publication-ready outputs.</p>
+                <p>Designed for both non-programmers and experts, our tools simplify complex statistical and bioinformatics workflows while maintaining the flexibility required for advanced research applications. All tools are built on robust R packages and deployed through secure Shiny servers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AgroMultiEnvStat Pro -->
+        <section class="section tool-section">
+            <div class="section-header">
+                <img src="assets/img/agri-logo.png" alt="AgroMultiEnvStat Pro logo" class="tool-logo">
+                <h2>AgroMultiEnvStat Pro – Advanced Agricultural Multi‑Environment Trial Analysis</h2>
+            </div>
+            
+            <div class="tool-content">
+
+                <h3>Integrated Modules</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <h4>1. AMMI & G×E Stability</h4>
+                        <ul>
+                            <li>AMMI ANOVA and interaction decomposition</li>
+                            <li>Stability indices (ASV, Wi, SIPC, etc.)</li>
+                            <li>AMMI1 & AMMI2 biplots</li>
+                            <li>Genotype‑focused and environment‑focused views</li>
+                        </ul>
+                    </div>
+                    <div class="module-card">
+                        <h4>2. BLUP Analysis</h4>
+                        <ul>
+                            <li>Single and multi‑environment BLUPs</li>
+                            <li>Variance component estimation</li>
+                            <li>Confidence intervals</li>
+                            <li>Performance heatmaps</li>
+                        </ul>
+                    </div>
+                    <div class="module-card">
+                        <h4>3. ANCOVA</h4>
+                        <ul>
+                            <li>Multiple covariates</li>
+                            <li>Type I, II, III sums of squares</li>
+                            <li>Adjusted means with CIs</li>
+                            <li>Diagnostic plots and interaction terms</li>
+                        </ul>
+                    </div>
+                    <div class="module-card">
+                        <h4>4. Correlation Analysis</h4>
+                        <ul>
+                            <li>Phenotypic correlation matrices</li>
+                            <li>Genotypic correlation estimation</li>
+                            <li>Heatmaps, ellipse plots, mixed matrices</li>
+                            <li>Exportable correlation tables</li>
+                        </ul>
+                    </div>
+                    <div class="module-card">
+                        <h4>5. Path Analysis</h4>
+                        <ul>
+                            <li>Genotypic and phenotypic path coefficients</li>
+                            <li>Direct and indirect effects</li>
+                            <li>Path diagrams</li>
+                            <li>Effect decomposition tables</li>
+                        </ul>
+                    </div>
+                    <div class="module-card">
+                        <h4>6. Advanced Utilities</h4>
+                        <ul>
+                            <li>Multiple output formats (PNG, JPG)</li>
+                            <li>Adjustable DPI</li>
+                            <li>Batch processing</li>
+                            <li>Outputs aligned with international standards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="ammi-gea.html" class="btn btn-primary">Launch AgroMultiEnvStat Pro</a>
+            </div>
+        </section>
+
+        <!-- MultiOmics Pro -->
+        <section class="section tool-section">
+            <div class="section-header">
+                <img src="assets/img/omic-logo.png" alt="MultiOmics Pro logo" class="tool-logo">
+                <h2>MultiOmics Pro – Integrated Multi‑Omics & Bioinformatics Platform</h2>
+            </div>
+
+                <h3>Supported Modules</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <h4>Sequence Alignment</h4>
+                        <ul>
+                            <li>FASTA/FASTQ file processing</li>
+                            <li>Multiple sequence alignment</li>
+                            <li>Alignment quality metrics</li>
+                            <li>Export in multiple formats</li>
+                        </ul>
+                    </div>
+                    <div class="module-card">
+                        <h4>Phylogenetic Analysis</h4>
+                        <ul>
+                            <li>Neighbor-joining (NJ) trees</li>
+                            <li>Maximum likelihood (ML) inference</li>
+                            <li>Newick format export</li>
+                            <li>Tree visualization and annotation</li>
+                        </ul>
+                    </div>
+                    <div class="module-card">
+                        <h4>Variant Analysis</h4>
+                        <ul>
+                            <li>VCF file processing</li>
+                            <li>SNP filtering and annotation</li>
+                            <li>Population structure analysis</li>
+                            <li>PCA and genetic diversity</li>
+                        </ul>
+                    </div>
+                    <div class="module-card">
+                        <h4>RNA‑seq Analysis</h4>
+                        <ul>
+                            <li>DESeq2, edgeR, and limma workflows</li>
+                            <li>Differential expression analysis</li>
+                            <li>Volcano plots and heatmaps</li>
+                            <li>Pathway and enrichment analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="bioomics.html" class="btn btn-primary">Launch MultiOmics Pro</a>
+            </div>
+        </section>
+
+        <!-- How to Use -->
+        <section class="section">
+            <h2>How to Use the Tools</h2>
+            <div class="two-column">
+                <div class="column">
+                    <h3>AgroMultiEnvStat Pro</h3>
+                    <ol>
+                        <li><strong>Upload Data</strong>: Import Excel or CSV files with your trial data</li>
+                        <li><strong>Select Variables</strong>: Choose genotypes, environments, and traits</li>
+                        <li><strong>Configure Analysis</strong>: Set parameters for AMMI, BLUP, or other analyses</li>
+                        <li><strong>Run Analysis</strong>: Execute statistical computations</li>
+                        <li><strong>Interpret Results</strong>: Review tables, biplots, and stability indices</li>
+                        <li><strong>Export Outputs</strong>: Download figures and tables for publication</li>
+                    </ol>
+                </div>
+                <div class="column">
+                    <h3>MultiOmics Pro</h3>
+                    <ol>
+                        <li><strong>Choose Module</strong>: Select alignment, phylogenetics, variant, or RNA‑seq analysis</li>
+                        <li><strong>Upload Data</strong>: Provide sequences, VCF files, or count matrices</li>
+                        <li><strong>Configure Parameters</strong>: Set analysis-specific options</li>
+                        <li><strong>Run Pipeline</strong>: Execute automated analysis workflow</li>
+                        <li><strong>Review QC</strong>: Check quality control metrics and diagnostic plots</li>
+                        <li><strong>Export Results</strong>: Download visualizations and processed data</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <button class="faq-question">Who are the target users of these tools?</button>
+                    <div class="faq-answer">
+                        <p>Our tools are designed for agricultural researchers, plant breeders, agronomists, bioinformaticians, graduate students, and research institutions working with multi‑environment trial data or multi‑omics datasets. Both academic and industry professionals can benefit from the platform.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do I need programming skills to use these tools?</button>
+                    <div class="faq-answer">
+                        <p>No programming skills are required. Both AgroMultiEnvStat Pro and MultiOmics Pro feature intuitive web interfaces with guided workflows. However, advanced users can customize analyses through additional parameter settings.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What file formats are supported?</button>
+                    <div class="faq-answer">
+                        <p>We support Excel (.xlsx), CSV, TSV for statistical data, and FASTA, FASTQ, VCF for bioinformatics analyses. All tools include data validation and format checking.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How should I cite these tools in publications?</button>
+                    <div class="faq-answer">
+                        <p>Please cite the relevant tool: For AgroMultiEnvStat Pro: Nain, Z. (2024). AgroMultiEnvStat Pro: An Integrated Platform for Agricultural Multi‑Environment Trial Analysis. For MultiOmics Pro: Include the platform URL and description in your methods section. Detailed citation information is provided in each tool's documentation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What kind of support do you offer?</button>
+                    <div class="faq-answer">
+                        <p>We provide technical support for platform usage, assistance with data preparation, guidance on analysis interpretation, and consulting services for custom analyses. Research collaboration and manuscript support are also available. Contact us for specific needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder & CEO -->
+        <section class="section">
+            <h2>Founder & CEO</h2>
+            <div class="founder-profile">
+                <div class="founder-image">
+                    <img src="assets/img/zulqar-nain.jpg" alt="Mr. ZULQAR NAIN – Founder & CEO">
+                </div>
+                <div class="founder-details">
+                    <h3>Mr. ZULQAR NAIN</h3>
+                    <p class="founder-title">Founder & CEO – AgriBioStat</p>
+                    
+                    <div class="badges">
+                        <span class="badge">Plant Breeder & Data Science Expert</span>
+                        <span class="badge">Agricultural Statistics Specialist</span>
+                        <span class="badge">Multi‑Environment Trial & G×E Analysis</span>
+                        <span class="badge">Statistical Genetics & Breeding Informatics</span>
+                    </div>
+               </div>
+            </div>
+
+        </section>
+
+        <!-- Scientific Advisory & Collaborators -->
+        <section class="section">
+            <h2>Scientific Advisory & Collaborators</h2>
+            <div class="advisors-grid">
+                <div class="advisor-card">
+                    <div class="advisor-image">
+                        <img src="assets/img/t.jpg" alt="Dr. Tahir Munir Butt">
+                    </div>
+                    <h4>DR. TAHIR MUNIR BUTT</h4>
+                    <p class="advisor-position">Principal, UAF Constituent College, Depalpur, Okara</p>
+                </div>
+                <div class="advisor-card">
+                    <div class="advisor-image">
+                        <img src="assets/img/s.jpg" alt="Dr. Sidra Iqbal">
+                    </div>
+                    <h4>DR. SIDRA IQBAL</h4>
+                    <p class="advisor-position">Assistant Professor & HOD – PBG, UAF Constituent College, Depalpur, Okara</p>
+                </div>
+                <div class="advisor-card">
+                    <div class="advisor-image">
+                        <img src="assets/img/h.jpg" alt="Dr. Haris Khurshid">
+                    </div>
+                    <h4>DR. HARIS KHURSHID</h4>
+                    <p class="advisor-position">SSO, National Agricultural Research Centre (NARC), Islamabad</p>
+                </div>
+                <div class="advisor-card">
+                    <div class="advisor-image">
+                        <img src="assets/img/r.jpg" alt="Dr. M. Rizwan Shafiq">
+                    </div>
+                    <h4>DR. M. RIZWAN SHAFIQ</h4>
+                    <p class="advisor-position">Lecturer – PBG, UAF Constituent College, Depalpur, Okara</p>
+                </div>
+                <div class="advisor-card">
+                    <div class="advisor-image">
+                        <img src="assets/img/j.jpg" alt="Dr. Javeria Ramzan">
+                    </div>
+                    <h4>DR. JAVERIA RAMZAN</h4>
+                    <p class="advisor-position">Teacher – PBG, UAF Constituent College, Depalpur, Okara</p>
+                </div>
+                <div class="advisor-card">
+                    <div class="advisor-image">
+                        <img src="assets/img/n.jpg" alt="Dr. Noshi Parveen">
+                    </div>
+                    <h4>DR. NOSHI PARVEEN</h4>
+                    <p class="advisor-position">Teacher – PBG, UAF Constituent College, Depalpur, Okara</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Native Banner Ad before Footer -->
+    <div id="home-native-ad-2"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/img/logof.png" alt="AgriBioStat Analytics Suite logo" class="footer-logo">
+                    <h3>AgriBioStat Analytics Suite</h3>
+                    <p>Advanced Agricultural Statistics & Multi‑Omics Bioinformatics Online</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="ammi-gea.html">AMMI & G×E</a>
+                    <a href="bioomics.html">BioOmics Pro</a>
+                    <a href="blogs.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="license.html">License & Terms</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Developer</h4>
+                    <p><strong>Zulqar Nain</strong><br>Plant Breeder & Data Science Expert</p>
+                    <p>
+                        <strong>WhatsApp:</strong> <a href="https://wa.me/923465375149">+92 346 5375149</a><br>
+                        <strong>Email:</strong> <a href="mailto:zulqarnainm656@gmail.com">zulqarnainm656@gmail.com</a>
+                    </p>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>External Links</h4>
+                    <a href="https://www.linkedin.com/in/zulqarnain-dar" target="_blank">LinkedIn</a>
+                    <a href="https://agristattools.github.io/agricultural-statistics-tools/" target="_blank">AgriStatTools</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 AgriBioStat Analytics Suite – All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize homepage-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize hero slider if on homepage
+            if (document.querySelector('.hero-slider')) {
+                initHeroSlider();
+            }
+            
+            // Initialize FAQ accordions
+            initFAQs();
+            
+            // Load ads
+            if (typeof AdManager !== 'undefined') {
+                AdManager.showNativeBanner('home-native-ad-1');
+                AdManager.showNativeBanner('home-native-ad-2');
+            }
+        });
+    </script>
+    
+    <!-- Load Ads Component -->
+    <script>
+        function loadAdsComponent() {
+            const adsContainer = document.createElement('div');
+            adsContainer.id = 'ads-container';
+            document.body.appendChild(adsContainer);
+            
+            fetch('ads.html')
+                .then(response => response.text())
+                .then(html => {
+                    adsContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    console.log('Ads loaded');
+                });
+        }
+        
+        loadAdsComponent();
+    </script>
+</body>
+</html>

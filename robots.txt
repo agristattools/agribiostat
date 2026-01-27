@@ -1,0 +1,32 @@
+# AgriBioStat Analytics Suite - Robots Exclusion File
+# Generated: 2026-01-01
+# Last Updated: 2026-01-01
+
+User-agent: *
+Allow: /
+
+# Disallow admin interface
+Disallow: /admin.html
+
+# Disallow search queries (if implemented later)
+Disallow: /search?
+Disallow: /query?
+
+# Sitemap location
+Sitemap: https://www.agribiostat-analytics.com/sitemap.xml
+
+# Crawl-delay for respectful crawling (optional)
+# Crawl-delay: 10
+
+# Specific bot instructions (examples)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Note: The actual domain (agribiostat-analytics.com) should be updated
+# to match the final deployment domain.
