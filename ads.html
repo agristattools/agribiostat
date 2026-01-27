@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ads</title>
-</head>
-<body>
+<!-- ads.html - Adsterra Ad Components -->
+<div style="display: none;">
     <!-- Popunder Script -->
     <script src="https://pl28518807.effectivegatecpm.com/72/2d/6c/722d6cd18b8a6d02d99216541d5b071d.js"></script>
     
@@ -12,9 +8,16 @@
     
     <!-- Native Banner Script -->
     <script async="async" data-cfasync="false" src="https://pl28518810.effectivegatecpm.com/e057183590c510b499eb5de3f9c43f9d/invoke.js"></script>
+</div>
+
+<!-- Ad Components -->
+<div class="ad-component" id="social-bar-ad" style="display: none;"></div>
+
+<div class="ad-component" id="native-banner-ad" style="display: none;">
     <div id="container-e057183590c510b499eb5de3f9c43f9d"></div>
-    
-    <!-- Banner 320x50 Script -->
+</div>
+
+<div class="ad-component" id="banner-320x50-ad" style="display: none;">
     <script>
         atOptions = {
             'key': '6401048f6c45f8f5c8835bb95567e611',
@@ -25,27 +28,142 @@
         };
     </script>
     <script src="https://www.highperformanceformat.com/6401048f6c45f8f5c8835bb95567e611/invoke.js"></script>
+</div>
+
+<!-- Smartlink redirect -->
+<div id="smartlink-redirect" style="display: none;">
+    <a href="https://www.effectivegatecpm.com/g8a2ww5t?key=933bc4b749a4893d94d8bb3c077e6e50" target="_blank" id="smartlink-trigger"></a>
+</div>
+
+<!-- Ads CSS -->
+<style>
+    .ad-container {
+        margin: 2rem auto;
+        text-align: center;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+        max-width: 100%;
+    }
     
-    <style>
-        .ad-container {
-            margin: 20px auto;
-            text-align: center;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-            max-width: 100%;
+    .ad-container.native {
+        background: transparent;
+        border: none;
+        padding: 1.5rem 0;
+    }
+    
+    .ad-container.banner {
+        background: #ffffff;
+        padding: 0.5rem;
+    }
+    
+    .ad-label {
+        display: block;
+        font-size: 0.75rem;
+        color: #6c757d;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .social-bar-container {
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 999;
+    }
+    
+    @media (max-width: 768px) {
+        .ad-container.mobile-only {
+            display: block;
         }
         
-        .ad-label {
-            display: block;
-            font-size: 12px;
-            color: #6c757d;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            font-family: 'Open Sans', sans-serif;
+        .social-bar-container {
+            display: none;
         }
-    </style>
-</body>
-</html>
+    }
+</style>
+
+<!-- Ads JavaScript -->
+<script>
+    const AdManager = {
+        init(pageType) {
+            if (pageType !== 'contact') {
+                this.showSocialBar();
+            }
+            
+            if (pageType === 'blogs') {
+                document.addEventListener('click', this.handlePopunder.bind(this), { once: true });
+            }
+        },
+        
+        showSocialBar() {
+            const socialBar = document.getElementById('social-bar-ad');
+            if (socialBar) {
+                socialBar.style.display = 'block';
+                socialBar.className = 'social-bar-container';
+            }
+        },
+        
+        handlePopunder() {
+            if (!sessionStorage.getItem('popunderShown')) {
+                setTimeout(() => {
+                    sessionStorage.setItem('popunderShown', 'true');
+                }, 1000);
+            }
+        },
+        
+        showNativeBanner(containerId) {
+            const container = document.getElementById(containerId);
+            const nativeAd = document.getElementById('native-banner-ad');
+            
+            if (container && nativeAd) {
+                const clone = nativeAd.cloneNode(true);
+                clone.style.display = 'block';
+                clone.className = 'ad-container native';
+                
+                const label = document.createElement('span');
+                label.className = 'ad-label';
+                label.textContent = 'Advertisement';
+                clone.insertBefore(label, clone.firstChild);
+                
+                container.appendChild(clone);
+            }
+        },
+        
+        showBanner320x50(containerId) {
+            const container = document.getElementById(containerId);
+            const bannerAd = document.getElementById('banner-320x50-ad');
+            
+            if (container && bannerAd) {
+                const clone = bannerAd.cloneNode(true);
+                clone.style.display = 'block';
+                clone.className = 'ad-container banner mobile-only';
+                
+                const label = document.createElement('span');
+                label.className = 'ad-label';
+                label.textContent = 'Advertisement';
+                clone.insertBefore(label, clone.firstChild);
+                
+                container.appendChild(clone);
+            }
+        }
+    };
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        let pageType = 'home';
+        const path = window.location.pathname;
+        
+        if (path.includes('ammi-gea.html')) pageType = 'ammi';
+        else if (path.includes('bioomics.html')) pageType = 'bioomics';
+        else if (path.includes('blogs.html')) pageType = 'blogs';
+        else if (path.includes('contact.html')) pageType = 'contact';
+        else if (path.includes('admin.html')) pageType = 'admin';
+        
+        if (pageType !== 'admin') {
+            AdManager.init(pageType);
+        }
+    });
+</script>
