@@ -70,11 +70,13 @@
             <h1>Agricultural Statistics & Bioinformatics Insights</h1>
             <p class="tagline">Best practices, case studies, and tutorials for AgroMultiEnvStat Pro and MultiOmics Pro</p>
             <p class="hero-desc">Explore practical guides, methodological insights, and application examples from agricultural research and bioinformatics.</p>
-        </div>
-    </header>
+
 
         <!-- Native Banner after blog title -->
-        <div id="blog-native-ad-1"></div>
+        <div id="blog-native-ad-1" class="ad-container">
+            <span class="ad-label">Advertisement</span>
+            <div id="container-e057183590c510b499eb5de3f9c43f9d"></div>
+        </div>
     </header>
 
     <main class="container">
@@ -90,7 +92,16 @@
             </div>
             
             <!-- Mid-content Native Banner -->
-            <div id="blog-native-ad-2" style="margin: 2rem 0;"></div>
+            <div id="blog-native-ad-2" class="ad-container" style="margin: 2rem 0;">
+                <span class="ad-label">Advertisement</span>
+                <div id="container-e057183590c510b499eb5de3f9c43f9d-2"></div>
+            </div>
+            
+            <!-- Mobile Banner -->
+            <div class="ad-container mobile-only">
+                <span class="ad-label">Advertisement</span>
+                <div id="banner-320x50"></div>
+            </div>
             
             <!-- Empty state (hidden by default) -->
             <div id="no-posts" class="no-posts" style="display: none;">
@@ -162,8 +173,56 @@
             
             // Initialize modal functionality
             initBlogModal();
+            
+            // Load ad scripts directly
+            loadAdScripts();
         });
         
+        function loadAdScripts() {
+            // Load Native Banner script for second container
+            const script1 = document.createElement('script');
+            script1.async = true;
+            script1.setAttribute('data-cfasync', 'false');
+            script1.src = 'https://pl28518810.effectivegatecpm.com/e057183590c510b499eb5de3f9c43f9d/invoke.js';
+            document.body.appendChild(script1);
+            
+            // Load 320x50 banner
+            const script2 = document.createElement('script');
+            script2.textContent = `
+                atOptions = {
+                    'key': '6401048f6c45f8f5c8835bb95567e611',
+                    'format': 'iframe',
+                    'height': 50,
+                    'width': 320,
+                    'params': {}
+                };
+            `;
+            document.body.appendChild(script2);
+            
+            const script3 = document.createElement('script');
+            script3.src = 'https://www.highperformanceformat.com/6401048f6c45f8f5c8835bb95567e611/invoke.js';
+            document.body.appendChild(script3);
+            
+            // Load Popunder and Social Bar
+            const script4 = document.createElement('script');
+            script4.src = 'https://pl28518807.effectivegatecpm.com/72/2d/6c/722d6cd18b8a6d02d99216541d5b071d.js';
+            document.body.appendChild(script4);
+            
+            const script5 = document.createElement('script');
+            script5.src = 'https://pl28518811.effectivegatecpm.com/62/10/1c/62101cf8c62dc98eb40bb69406f6ab83.js';
+            document.body.appendChild(script5);
+            
+            // Set up popunder control
+            if (!sessionStorage.getItem('popunderShown')) {
+                document.addEventListener('click', function() {
+                    setTimeout(() => {
+                        sessionStorage.setItem('popunderShown', 'true');
+                    }, 1000);
+                }, { once: true });
+            }
+        }
+        
+        // KEEP ALL YOUR EXISTING FUNCTIONS BELOW THIS LINE
         function loadBlogPosts() {
             const blogContainer = document.getElementById('blog-posts');
             const noPostsDiv = document.getElementById('no-posts');
@@ -363,6 +422,38 @@
             });
         }
     </script>
+    
+    <style>
+        /* Ad Styles */
+        .ad-container {
+            margin: 20px auto;
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            max-width: 100%;
+        }
+        
+        .ad-label {
+            display: block;
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .mobile-only {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-only {
+                display: block;
+            }
+        }
+    </style>
 </body>
-
 </html>
