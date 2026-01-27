@@ -527,180 +527,22 @@
             // Initialize FAQ accordions
             initFAQs();
             
-<!-- Adsterra Ads Integration -->
-<div id="ads-container" style="display: none;">
-    <!-- Popunder Script -->
-    <script src="https://pl28518807.effectivegatecpm.com/72/2d/6c/722d6cd18b8a6d02d99216541d5b071d.js"></script>
-    
-    <!-- Social Bar Script -->
-    <script src="https://pl28518811.effectivegatecpm.com/62/10/1c/62101cf8c62dc98eb40bb69406f6ab83.js"></script>
-    
-    <!-- Native Banner Script -->
-    <script async="async" data-cfasync="false" src="https://pl28518810.effectivegatecpm.com/e057183590c510b499eb5de3f9c43f9d/invoke.js"></script>
-    
-    <!-- Banner 320x50 Script -->
-    <script>
-        atOptions = {
-            'key': '6401048f6c45f8f5c8835bb95567e611',
-            'format': 'iframe',
-            'height': 50,
-            'width': 320,
-            'params': {}
-        };
-    </script>
-    <script src="https://www.highperformanceformat.com/6401048f6c45f8f5c8835bb95567e611/invoke.js"></script>
-</div>
-
-<style>
-    .ad-container {
-        margin: 2rem auto;
-        text-align: center;
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-        border: 1px solid #e9ecef;
-        max-width: 100%;
-    }
-    
-    .ad-container.native {
-        background: transparent;
-        border: none;
-        padding: 1.5rem 0;
-    }
-    
-    .ad-container.banner {
-        background: #ffffff;
-        padding: 0.5rem;
-        margin: 1rem auto;
-    }
-    
-    .ad-label {
-        display: block;
-        font-size: 0.75rem;
-        color: #6c757d;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 0.5rem;
-        font-family: 'Open Sans', sans-serif;
-    }
-    
-    .social-bar-container {
-        position: fixed;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 999;
-    }
-    
-    @media (max-width: 768px) {
-        .ad-container.mobile-only {
-            display: block !important;
-            max-width: 320px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .social-bar-container {
-            display: none !important;
-        }
-    }
-    
-    @media (min-width: 769px) {
-        .ad-container.mobile-only {
-            display: none !important;
-        }
-    }
-</style>
-
+<!-- Load Ads Component -->
 <script>
-    // Ad Manager
-    const AdManager = {
-        init() {
-            const path = window.location.pathname;
-            const pageName = path.split('/').pop() || 'index.html';
-            
-            // Show Social Bar on all pages except contact
-            if (!pageName.includes('contact.html') && !pageName.includes('admin.html')) {
-                this.showSocialBar();
-            }
-            
-            // Initialize page-specific ads
-            if (pageName.includes('index.html')) {
-                this.showNativeBanner('home-native-ad-1');
-                this.showNativeBanner('home-native-ad-2');
-            } 
-            else if (pageName.includes('ammi-gea.html')) {
-                setTimeout(() => {
-                    this.showNativeBanner('ammi-native-ad');
-                }, 2000);
-            }
-            else if (pageName.includes('bioomics.html')) {
-                this.showNativeBanner('bioomics-native-ad');
-            }
-            else if (pageName.includes('blogs.html')) {
-                this.showNativeBanner('blog-native-ad-1');
-                this.showNativeBanner('blog-native-ad-2');
-                this.showBanner320x50('blog-posts');
-                
-                // Popunder on first click
-                if (!sessionStorage.getItem('popunderShown')) {
-                    document.addEventListener('click', () => {
-                        sessionStorage.setItem('popunderShown', 'true');
-                    }, { once: true });
-                }
-            }
-        },
+    function loadAdsComponent() {
+        const adsContainer = document.createElement('div');
+        adsContainer.id = 'ads-container';
+        document.body.appendChild(adsContainer);
         
-        showSocialBar() {
-            // Social Bar script will auto-initialize
-            console.log('Social Bar initialized');
-        },
-        
-        showNativeBanner(containerId) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            
-            const adDiv = document.createElement('div');
-            adDiv.className = 'ad-container native';
-            adDiv.innerHTML = `
-                <span class="ad-label">Advertisement</span>
-                <div id="container-e057183590c510b499eb5de3f9c43f9d"></div>
-            `;
-            
-            container.appendChild(adDiv);
-        },
-        
-        showBanner320x50(containerId) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            
-            const adDiv = document.createElement('div');
-            adDiv.className = 'ad-container banner mobile-only';
-            adDiv.innerHTML = `
-                <span class="ad-label">Advertisement</span>
-                <div id="banner-320x50-placeholder"></div>
-            `;
-            
-            container.appendChild(adDiv);
-            
-            // Load the banner script for this placement
-            const bannerScript = document.createElement('script');
-            bannerScript.innerHTML = `
-                atOptions = {
-                    'key': '6401048f6c45f8f5c8835bb95567e611',
-                    'format': 'iframe',
-                    'height': 50,
-                    'width': 320,
-                    'params': {}
-                };
-            `;
-            adDiv.appendChild(bannerScript);
-            
-            const invokeScript = document.createElement('script');
-            invokeScript.src = 'https://www.highperformanceformat.com/6401048f6c45f8f5c8835bb95567e611/invoke.js';
-            adDiv.appendChild(invokeScript);
-        }
-    };
+        fetch('ads.html')
+            .then(response => response.text())
+            .then(html => {
+                adsContainer.innerHTML = html;
+            })
+            .catch(error => {
+                console.log('Ads loaded');
+            });
+    }
     
     // Initialize ads when page loads
     document.addEventListener('DOMContentLoaded', function() {
@@ -709,6 +551,7 @@
 </script>
 </body>
 </html>
+
 
 
 
