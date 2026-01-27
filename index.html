@@ -527,32 +527,9 @@
               // Initialize FAQ accordions
             initFAQs();
             
-            // Load ads
-            if (typeof AdManager !== 'undefined') {
-                AdManager.showNativeBanner('home-native-ad-1');
-                AdManager.showNativeBanner('home-native-ad-2');
-            }
-        });
-    </script>
-    
-    <!-- Load Ads Component -->
-    <script>
-        function loadAdsComponent() {
-            const adsContainer = document.createElement('div');
-            adsContainer.id = 'ads-container';
-            document.body.appendChild(adsContainer);
-            
-            fetch('ads.html')
-                .then(response => response.text())
-                .then(html => {
-                    adsContainer.innerHTML = html;
-                })
-                .catch(error => {
-                    console.log('Ads loaded');
-                });
-        }
-        
-        loadAdsComponent();
+    <!-- Ads Manager -->
+    <script src="assets/js/ads-manager.js"></script>
     </script>
 </body>
 </html>
+
