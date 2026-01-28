@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>AMMI & G×E Stability Analysis Online | AgroMultiEnvStat Pro</title>
-    <meta name="description" content="Online AMMI analysis and genotype × environment interaction stability analysis for multi-environment trials. Professional agricultural statistics tool for plant breeding and crop improvement.">
-    <meta name="keywords" content="AMMI analysis online, genotype × environment interaction, G×E stability analysis, multi-environment trial analysis, agricultural statistics platform, plant breeding statistics software, stability indices, AMMI biplots, BLUP analysis online">
+    <title>MultiOmics Pro | Multi‑Omics & Bioinformatics Analysis Platform</title>
+    <meta name="description" content="Integrated bioinformatics platform for multi‑omics analysis: sequence alignment, phylogenetic analysis, variant analysis, and RNA‑seq analysis online with automated pipelines.">
+    <meta name="keywords" content="multi‑omics analysis platform, bioinformatics analysis online, RNA‑seq analysis pipeline, VCF variant analysis online, sequence alignment tool, phylogenetic analysis online, genomics, transcriptomics, proteomics, differential expression analysis">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://agristattools.github.io/agribiostat/ammi-gea.html">
+    <link rel="canonical" href="https://agristattools.github.io/agribiostat/bioomics.html">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/img/logo-main.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.png">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -55,8 +55,8 @@
             </button>
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="ammi-gea.html" class="nav-link active">AMMI & G×E</a>
-                <a href="bioomics.html" class="nav-link">BioOmics Pro</a>
+                <a href="ammi-gea.html" class="nav-link">AMMI & G×E</a>
+                <a href="bioomics.html" class="nav-link active">BioOmics Pro</a>
                 <a href="blogs.html" class="nav-link">Blog</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
@@ -66,10 +66,10 @@
     <!-- Hero Section -->
     <header class="hero hero-tool">
         <div class="container">
-            <h1>AMMI & G×E Stability Analysis Online</h1>
-            <p class="tagline">AgroMultiEnvStat Pro – Multi‑Environment Trial & Genotype × Environment Interaction</p>
-            <p class="hero-desc">Perform comprehensive AMMI ANOVA, stability analysis, and genotype × environment interaction decomposition for agricultural multi‑environment trials.</p>
-            <button class="btn btn-primary scroll-to-tool">Start AMMI & G×E Analysis</button>
+            <h1>MultiOmics Pro – Integrated Multi‑Omics & Bioinformatics Analysis</h1>
+            <p class="tagline">Sequence Alignment • Phylogenetics • Variant Analysis • RNA‑seq • Differential Expression</p>
+            <p class="hero-desc">Complete bioinformatics platform for genomics, transcriptomics, and proteomics data analysis with automated pipelines and publication‑ready outputs.</p>
+            <button class="btn btn-primary scroll-to-tool">Open MultiOmics Pro</button>
         </div>
     </header>
 
@@ -78,13 +78,12 @@
         <section class="tool-container" id="tool-iframe">
             <div class="container">
                 <!-- 
-                    IMPORTANT: Replace the src URL below when the dedicated AgroMultiEnvStat Pro 
-                    Shiny app is deployed separately from the AMMI & G×E tool.
-                    Current URL points to the demo/development version.
+                    IMPORTANT: This currently uses the same URL as AMMI & G×E.
+                    Replace with dedicated MultiOmics Pro Shiny app URL when available.
                 -->
                 <iframe 
-                    src="https://statisticstool.shinyapps.io/ammi__gea/" 
-                    title="AgroMultiEnvStat Pro – AMMI & G×E Analysis Tool"
+                    src="https://zdanalysis.shinyapps.io/omicsflow_pro/" 
+                    title="MultiOmics Pro – Multi‑Omics Bioinformatics Platform"
                     loading="lazy"
                     class="tool-iframe"
                     allow="fullscreen">
@@ -92,7 +91,7 @@
                 
                 <!-- Loading State -->
                 <div class="iframe-loading">
-                    <p>Loading AgroMultiEnvStat Pro...</p>
+                    <p>Loading MultiOmics Pro...</p>
                     <div class="loading-spinner"></div>
                     <p class="loading-note">If the tool doesn't load, please ensure JavaScript is enabled and try refreshing the page.</p>
                 </div>
@@ -153,7 +152,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
     <script>
@@ -179,11 +178,11 @@
                     iframe.style.opacity = '1';
                 });
                 
-                // Fallback
+                // Fallback: hide loading after 10 seconds
                 setTimeout(function() {
                     loadingDiv.style.display = 'none';
                     iframe.style.opacity = '1';
-                }, 3000);
+                }, 10000);
             }
         });
     </script>
