@@ -19,23 +19,23 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/img/logo-main.svg">
-<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -98,13 +98,21 @@
                 </div>
             </div>
         </section>
-
-        <!-- Native Banner Ad after results -->
-        <div id="ammi-native-ad"></div>
-
     </main>
 
-       <!-- Footer -->
+<!-- Insert this just before the footer -->
+<section class="section">
+    <div class="ad-container native">
+        <span class="ad-label">Advertisement</span>
+        <!-- Native Banner -->
+        <script async="async" data-cfasync="false" src="https://pl28518810.effectivegatecpm.com/e057183590c510b499eb5de3f9c43f9d/invoke.js"></script>
+        <div id="container-e057183590c510b499eb5de3f9c43f9d"></div>
+    </div>
+</section>
+
+</main> <!-- Existing main closing tag -->
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -145,6 +153,7 @@
             </div>
         </div>
     </footer>
+    
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
     <script>
@@ -168,47 +177,15 @@
                 iframe.addEventListener('load', function() {
                     loadingDiv.style.display = 'none';
                     iframe.style.opacity = '1';
-                    
-                    // Show ad after iframe loads
-                    if (typeof AdManager !== 'undefined') {
-                        setTimeout(() => {
-                            AdManager.showNativeBanner('ammi-native-ad');
-                        }, 1000);
-                    }
                 });
                 
                 // Fallback
                 setTimeout(function() {
                     loadingDiv.style.display = 'none';
                     iframe.style.opacity = '1';
-                    
-                    if (typeof AdManager !== 'undefined') {
-                        AdManager.showNativeBanner('ammi-native-ad');
-                    }
                 }, 3000);
             }
         });
     </script>
-    
-    <!-- Load Ads Component -->
-    <script>
-        function loadAdsComponent() {
-            const adsContainer = document.createElement('div');
-            adsContainer.id = 'ads-container';
-            document.body.appendChild(adsContainer);
-            
-            fetch('ads.html')
-                .then(response => response.text())
-                .then(html => {
-                    adsContainer.innerHTML = html;
-                })
-                .catch(error => {
-                    console.log('Ads loaded');
-                });
-        }
-        
-        loadAdsComponent();
-    </script>
 </body>
-
 </html>
