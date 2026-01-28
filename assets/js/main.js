@@ -367,3 +367,139 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Your other initialization code here...
 });
+
+
+// ===== AD MANAGEMENT =====
+function loadAdScript(src, type = 'script') {
+    return new Promise((resolve, reject) => {
+        if (type === 'script') {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.body.appendChild(script);
+        } else if (type === 'popunder') {
+            // Popunder is loaded differently
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            document.body.appendChild(script);
+            resolve();
+        }
+    });
+}
+
+// Prevent multiple popunder loads per session
+function loadPopunderOnce() {
+    const popunderLoaded = sessionStorage.getItem('popunderLoaded');
+    
+    if (!popunderLoaded && 
+        (window.location.pathname.includes('index.html') || 
+         window.location.pathname.includes('blogs.html'))) {
+        
+        loadAdScript('https://pl28518807.effectivegatecpm.com/72/2d/6c/722d6cd18b8a6d02d99216541d5b071d.js', 'popunder')
+            .then(() => {
+                sessionStorage.setItem('popunderLoaded', 'true');
+            })
+            .catch(err => console.error('Popunder failed to load:', err));
+    }
+}
+
+// Load Social Bar for homepage
+function loadSocialBar() {
+    if (window.location.pathname.includes('index.html')) {
+        const socialBarContainer = document.createElement('div');
+        socialBarContainer.className = 'social-bar-container';
+        document.body.appendChild(socialBarContainer);
+        
+        loadAdScript('https://pl28518811.effectivegatecpm.com/62/10/1c/62101cf8c62dc98eb40bb69406f6ab83.js')
+            .catch(err => console.error('Social Bar failed to load:', err));
+    }
+}
+
+// Initialize ads
+document.addEventListener('DOMContentLoaded', function() {
+    // Load popunder once per session
+    loadPopunderOnce();
+    
+    // Load social bar for homepage
+    loadSocialBar();
+});
+
+
+
+
+
+
+// ===== BLOG PAGE AD FUNCTIONALITY =====
+function initBlogAds() {
+    // Only run on blogs page
+    if (!window.location.pathname.includes('blogs.html')) return;
+    
+    // Smartlink conversion for CTA buttons
+    function convertCTALinks() {
+        const smartlinkUrl = 'https://www.effectivegatecpm.com/g8a2ww5t?key=933bc4b749a4893d94d8bb3c077e6e50';
+        
+        // Convert primary buttons to smartlinks
+        const ctaButtons = document.querySelectorAll('.btn-primary:not([href*="ammi-gea"]):not([href*="bioomics"])');
+        ctaButtons.forEach(btn => {
+            if (btn.href && !btn.href.includes('#') && !btn.href.includes('mailto:')) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(smartlinkUrl, '_blank');
+                });
+            }
+        });
+    }
+    
+    // Modify modal opening to insert ads
+    function modifyBlogModal() {
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('read-more')) {
+                setTimeout(insertNativeAdInModal, 100);
+            }
+        });
+    }
+    
+    // Insert native ad in modal after 2nd paragraph
+    function insertNativeAdInModal() {
+        const modalBody = document.getElementById('modal-body');
+        if (!modalBody) return;
+        
+        const paragraphs = modalBody.querySelectorAll('p');
+        if (paragraphs.length >= 2) {
+            const adContainer = document.createElement('div');
+            adContainer.className = 'ad-container native';
+            adContainer.style.margin = '2rem 0';
+            adContainer.innerHTML = `
+                <span class="ad-label">Advertisement</span>
+                <script async="async" data-cfasync="false" src="https://pl28518810.effectivegatecpm.com/e057183590c510b499eb5de3f9c43f9d/invoke.js"></script>
+                <div id="container-e057183590c510b499eb5de3f9c43f9d"></div>
+            `;
+            
+            paragraphs[1].after(adContainer);
+            
+            // Load ad script
+            setTimeout(() => {
+                const existingScript = document.querySelector('script[src*="e057183590c510b499eb5de3f9c43f9d"]');
+                if (!existingScript) {
+                    const script = document.createElement('script');
+                    script.async = true;
+                    script.setAttribute('data-cfasync', 'false');
+                    script.src = 'https://pl28518810.effectivegatecpm.com/e057183590c510b499eb5de3f9c43f9d/invoke.js';
+                    document.body.appendChild(script);
+                }
+            }, 200);
+        }
+    }
+    
+    // Initialize blog ads
+    convertCTALinks();
+    modifyBlogModal();
+}
+
+// Call when DOM is loaded
+document.addEventListener('DOMContentLoaded', initBlogAds);
+
+
