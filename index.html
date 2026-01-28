@@ -217,7 +217,6 @@
             </div>
             
             <div class="tool-content">
-
                 <h3>Integrated Modules</h3>
                 <div class="modules-grid">
                     <div class="module-card">
@@ -286,7 +285,8 @@
                 <img src="assets/img/omic-logo.png" alt="MultiOmics Pro logo" class="tool-logo">
                 <h2>MultiOmics Pro – Integrated Multi‑Omics & Bioinformatics Platform</h2>
             </div>
-
+            
+            <div class="tool-content">
                 <h3>Supported Modules</h3>
                 <div class="modules-grid">
                     <div class="module-card">
@@ -414,9 +414,8 @@
                         <span class="badge">Multi‑Environment Trial & G×E Analysis</span>
                         <span class="badge">Statistical Genetics & Breeding Informatics</span>
                     </div>
-               </div>
+                </div>
             </div>
-
         </section>
 
         <!-- Scientific Advisory & Collaborators -->
@@ -469,8 +468,30 @@
         </section>
     </main>
 
-    <!-- Native Banner Ad before Footer -->
-    <div id="home-native-ad-2"></div>
+<!-- After the About Platform section -->
+<section class="section">
+    <div class="ad-container native">
+        <span class="ad-label">Advertisement</span>
+        <!-- Native Banner -->
+        <script async="async" data-cfasync="false" src="https://pl28518810.effectivegatecpm.com/e057183590c510b499eb5de3f9c43f9d/invoke.js"></script>
+        <div id="container-e057183590c510b499eb5de3f9c43f9d"></div>
+    </div>
+    
+    <!-- Mobile-only banner -->
+    <div class="ad-container banner mobile-only">
+        <span class="ad-label">Advertisement</span>
+        <script>
+          atOptions = {
+            'key' : '6401048f6c45f8f5c8835bb95567e611',
+            'format' : 'iframe',
+            'height' : 25,
+            'width' : 150,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/6401048f6c45f8f5c8835bb95567e611/invoke.js"></script>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -526,34 +547,306 @@
             
             // Initialize FAQ accordions
             initFAQs();
-            
-            // Load ads
-            if (typeof AdManager !== 'undefined') {
-                AdManager.showNativeBanner('home-native-ad-1');
-                AdManager.showNativeBanner('home-native-ad-2');
-            }
         });
     </script>
-    
-    <!-- Load Ads Component -->
-    <script>
-        function loadAdsComponent() {
-            const adsContainer = document.createElement('div');
-            adsContainer.id = 'ads-container';
-            document.body.appendChild(adsContainer);
-            
-            fetch('ads.html')
-                .then(response => response.text())
-                .then(html => {
-                    adsContainer.innerHTML = html;
-                })
-                .catch(error => {
-                    console.log('Ads loaded');
-                });
+
+
+    <!-- ===== ANIMATION STYLES (Slider animation removed) ===== -->
+    <style>
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
         }
         
-        loadAdsComponent();
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: fadeInRight 0.8s ease forwards;
+        }
+        
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.9);
+            animation: zoomIn 0.8s ease forwards;
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* Keyframes */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Hover Effects */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Add subtle background patterns */
+        .tool-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 60%, rgba(0, 166, 166, 0.03) 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .tool-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Enhanced button animations */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(50, 50);
+                opacity: 0;
+            }
+        }
+        
+        /* Staggered animations for lists */
+        .modules-grid .module-card:nth-child(1) { animation-delay: 0.1s; }
+        .modules-grid .module-card:nth-child(2) { animation-delay: 0.2s; }
+        .modules-grid .module-card:nth-child(3) { animation-delay: 0.3s; }
+        .modules-grid .module-card:nth-child(4) { animation-delay: 0.4s; }
+        .modules-grid .module-card:nth-child(5) { animation-delay: 0.5s; }
+        .modules-grid .module-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.2s; }
+        .faq-item:nth-child(3) { animation-delay: 0.3s; }
+        .faq-item:nth-child(4) { animation-delay: 0.4s; }
+        .faq-item:nth-child(5) { animation-delay: 0.5s; }
+        
+        .advisor-card:nth-child(1) { animation-delay: 0.1s; }
+        .advisor-card:nth-child(2) { animation-delay: 0.2s; }
+        .advisor-card:nth-child(3) { animation-delay: 0.3s; }
+        .advisor-card:nth-child(4) { animation-delay: 0.4s; }
+        .advisor-card:nth-child(5) { animation-delay: 0.5s; }
+        .advisor-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+
+    <!-- ===== ANIMATION SCRIPTS (Slider animation removed) ===== -->
+    <script>
+        // Homepage Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes to elements with delay
+            setTimeout(() => {
+                document.querySelector('.hero h1').classList.add('fade-in-up');
+            }, 200);
+            
+            setTimeout(() => {
+                document.querySelector('.hero .tagline').classList.add('fade-in-up');
+            }, 400);
+            
+            setTimeout(() => {
+                document.querySelector('.hero .hero-desc').classList.add('fade-in-up');
+            }, 600);
+            
+            setTimeout(() => {
+                document.querySelector('.hero-actions').classList.add('fade-in-up');
+            }, 800);
+            
+            // About section
+            setTimeout(() => {
+                const aboutSection = document.querySelector('.section:first-of-type');
+                if (aboutSection) {
+                    aboutSection.querySelector('h2').classList.add('fade-in-left');
+                    aboutSection.querySelector('.about-content').classList.add('fade-in-right');
+                }
+            }, 1000);
+            
+            // Tool sections
+            setTimeout(() => {
+                const toolSections = document.querySelectorAll('.tool-section');
+                toolSections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.classList.add('zoom-in');
+                    }, index * 300);
+                });
+            }, 1200);
+            
+            // How to Use sections
+            setTimeout(() => {
+                const columns = document.querySelectorAll('.two-column .column');
+                columns[0].classList.add('fade-in-left');
+                columns[1].classList.add('fade-in-right');
+            }, 1500);
+            
+            // FAQ items
+            setTimeout(() => {
+                const faqItems = document.querySelectorAll('.faq-item');
+                faqItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('fade-in-up');
+                    }, index * 100);
+                });
+            }, 1800);
+            
+            // Founder profile
+            setTimeout(() => {
+                const founderProfile = document.querySelector('.founder-profile');
+                if (founderProfile) {
+                    founderProfile.classList.add('fade-in-up');
+                }
+            }, 2000);
+            
+            // Advisor cards
+            setTimeout(() => {
+                const advisorCards = document.querySelectorAll('.advisor-card');
+                advisorCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('zoom-in');
+                    }, index * 150);
+                });
+            }, 2200);
+            
+            // Add floating animation to logos
+            setTimeout(() => {
+                const logos = document.querySelectorAll('.tool-logo');
+                logos.forEach(logo => {
+                    logo.classList.add('float-animation');
+                });
+            }, 2400);
+            
+            // Add hover class to interactive elements
+            setTimeout(() => {
+                // Add to all cards and buttons
+                document.querySelectorAll('.module-card, .btn, .advisor-card').forEach(el => {
+                    el.classList.add('hover-lift');
+                });
+            }, 2600);
+            
+            // Add pulse animation to primary buttons
+            setTimeout(() => {
+                const primaryButtons = document.querySelectorAll('.btn-primary');
+                primaryButtons.forEach(btn => {
+                    btn.classList.add('pulse-animation');
+                });
+            }, 2800);
+            
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        // Add animations to elements when they come into view
+                        if (element.classList.contains('module-card') && !element.classList.contains('zoom-in')) {
+                            element.classList.add('zoom-in');
+                        }
+                        
+                        if (element.classList.contains('advisor-card') && !element.classList.contains('zoom-in')) {
+                            element.classList.add('zoom-in');
+                        }
+                        
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all modules and cards
+            document.querySelectorAll('.module-card, .advisor-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
     </script>
 </body>
 </html>
-
